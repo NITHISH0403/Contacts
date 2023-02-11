@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.logging.*;
 
 class Node{
     public Node next;
@@ -18,6 +19,7 @@ class Node{
 public class Contacts{
     Node head;
     int size;
+    Logger l = Logger.getLogger("com.api.jar");
     Contacts(){
         head = null;
         size = 0;
@@ -73,17 +75,18 @@ public class Contacts{
     }
     void search(String nm){
         Node current = head;
-        String str = "";
+        String search = "";
         int flag = 0;
         while (current != null){
             if(current.Name .equals(nm))
-                str += current.Name + " " + current.Phone + " " + current.Email + " ";
+                search += current.Name + " " + current.Phone + " " + current.Email + " ";
                 flag = 1;
             current = current.next;
         }
         if(flag == 1) {
-            System.out.println("Your Search Contact is Found...");
-            System.out.println(str);
+            l.info("Your Search Contact is Found...");
+            String finalSearch = search;
+            l.log(Level.INFO,()-> finalSearch);
         }
         else {
             System.out.println("Your Search Contact is Not Found...");
@@ -96,11 +99,13 @@ public class Contacts{
             str += current.Name + " " + current.Phone + " " + current.Email + " ";
             current = current.next;
         }
-        System.out.println(str);
+        String finalStr = str;
+        l.log(Level.INFO,()-> finalStr);
     }
     public static void main(String[] args) {
         Contacts c = new Contacts();
         Scanner s = new Scanner(System.in);
+        Logger l1 = Logger.getLogger("com.api.jar");
         c.add("NITHISH", 9597512667L, "nithish@gmail.com");
         c.add("MANI", 4930872348L, "mani@gmail.com");
         c.add("KANNAN", 8238940349L, "kannan@gmail.com");
@@ -108,7 +113,7 @@ public class Contacts{
         c.insert("KUMAR", 8912749192L, "kumar@gmail.com", 0);
         c.print();
         c.remove(2);
-        System.out.println("Enter the Search Contact Name:");
+        l1.info("Enter the Search Contact Name:");
         String find = s.nextLine();
         c.search(find);
     }
