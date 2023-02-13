@@ -82,10 +82,10 @@ public class Contacts{
         while (current != null){
             if(current.Name .equals(nm))
                 search.append( current.Name + " " + current.Phone + " " + current.Email + " ");
-                flag = 1;
+                flag++;
             current = current.next;
         }
-        if(flag == 1) {
+        if(flag != 0) {
             l.info("Your Search Contact is Found...");
             StringBuilder finalSearch = search;
             l.log(Level.INFO,()-> String.valueOf(finalSearch));
