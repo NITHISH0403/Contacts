@@ -43,7 +43,8 @@ public class Contacts{
     }
     void insert(String nm, long ph, String eid, int index){
         Node node = new Node(nm, ph, eid);
-        Node current, prev = null;
+        Node current
+        Node prev = null;
         if(index == 0){
             current = node;
             current.next = head;
@@ -77,7 +78,7 @@ public class Contacts{
     }
     void search(String nm){
         Node current = head;
-        StringBuilder search = new StringBuilder();;
+        StringBuilder search = new StringBuilder();
         int flag = 0;
         while (current != null){
             if(current.Name .equals(nm))
@@ -96,7 +97,7 @@ public class Contacts{
     }
     void print(){
         Node current = head;
-        StringBuilder str = new StringBuilder();;
+        StringBuilder str = new StringBuilder();
         while (current != null){
             str.append(current.Name + " " + current.Phone + " " + current.Email + " ");
             current = current.next;
