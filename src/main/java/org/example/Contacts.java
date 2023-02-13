@@ -5,17 +5,17 @@ import java.util.logging.*;
 
 class Node{
     public Node next = null;
-    public String Name;
-    public long Phone;
-    public String Email;
+    public String name;
+    public long phone;
+    public String email;
 
     public Node(String nm, long ph, String eid){
         setDetails(nm, ph, eid);
     }
     void setDetails(String nm, long ph, String eid) {
-        Name = nm;
-        Phone = ph;
-        Email = eid;
+        name = nm;
+        phone = ph;
+        email = eid;
     }
 }
 public class Contacts{
@@ -43,7 +43,7 @@ public class Contacts{
     }
     void insert(String nm, long ph, String eid, int index){
         Node node = new Node(nm, ph, eid);
-        Node current
+        Node current;
         Node prev = null;
         if(index == 0){
             current = node;
@@ -81,9 +81,9 @@ public class Contacts{
         StringBuilder search = new StringBuilder();
         int flag = 0;
         while (current != null){
-            if(current.Name .equals(nm))
-                search.append( current.Name + " " + current.Phone + " " + current.Email + " ");
-                flag++;
+            if(current.name.equals(nm))
+                search.append( current.name + " " + current.phone + " " + current.email + " ");
+            flag++;
             current = current.next;
         }
         if(flag != 0) {
@@ -99,7 +99,7 @@ public class Contacts{
         Node current = head;
         StringBuilder str = new StringBuilder();
         while (current != null){
-            str.append(current.Name + " " + current.Phone + " " + current.Email + " ");
+            str.append(current.name + " " + current.phone + " " + current.email + " ");
             current = current.next;
         }
         StringBuilder finalStr = str;
