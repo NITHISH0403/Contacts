@@ -4,16 +4,18 @@ import java.util.Scanner;
 import java.util.logging.*;
 
 class Node{
-    public Node next;
-    public String Name;
-    public  long Phone;
-    public String Email;
+    public Node next = null;
+    public static String Name;
+    public static long Phone;
+    public static String Email;
 
     public Node(String nm, long ph, String eid){
+        setDetails(nm, ph, eid);
+    }
+    void setDetails(String nm, long ph, String eid) {
         Name = nm;
         Phone = ph;
         Email = eid;
-        next = null;
     }
 }
 public class Contacts{
