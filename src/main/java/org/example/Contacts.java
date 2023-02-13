@@ -5,9 +5,9 @@ import java.util.logging.*;
 
 class Node{
     public Node next = null;
-    public static String Name;
-    public static long Phone;
-    public static String Email;
+    public String Name;
+    public long Phone;
+    public String Email;
 
     public Node(String nm, long ph, String eid){
         setDetails(nm, ph, eid);
@@ -77,18 +77,18 @@ public class Contacts{
     }
     void search(String nm){
         Node current = head;
-        String search = "";
+        StringBuilder search = new StringBuilder();;
         int flag = 0;
         while (current != null){
             if(current.Name .equals(nm))
-                search += current.Name + " " + current.Phone + " " + current.Email + " ";
+                search.append( current.Name + " " + current.Phone + " " + current.Email + " ");
                 flag = 1;
             current = current.next;
         }
         if(flag == 1) {
             l.info("Your Search Contact is Found...");
-            String finalSearch = search;
-            l.log(Level.INFO,()-> finalSearch);
+            StringBuilder finalSearch = search;
+            l.log(Level.INFO,()-> String.valueOf(finalSearch));
         }
         else {
             System.out.println("Your Search Contact is Not Found...");
@@ -96,13 +96,13 @@ public class Contacts{
     }
     void print(){
         Node current = head;
-        String str = "";
+        StringBuilder str = new StringBuilder();;
         while (current != null){
-            str += current.Name + " " + current.Phone + " " + current.Email + " ";
+            str.append(current.Name + " " + current.Phone + " " + current.Email + " ");
             current = current.next;
         }
-        String finalStr = str;
-        l.log(Level.INFO,()-> finalStr);
+        StringBuilder finalStr = str;
+        l.log(Level.INFO,()-> String.valueOf(finalStr));
     }
     public static void main(String[] args) {
         Contacts c = new Contacts();
