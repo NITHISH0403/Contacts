@@ -4,10 +4,10 @@ import java.util.Scanner;
 import java.util.logging.*;
 
 class Node{
-    public Node next = null;
-    public String name;
-    public long phone;
-    public String email;
+    Node next = null;
+    String name;
+    long phone;
+    String email;
 
     public Node(String nm, long ph, String eid){
         setDetails(nm, ph, eid);
