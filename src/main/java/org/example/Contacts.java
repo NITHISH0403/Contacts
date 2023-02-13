@@ -91,7 +91,7 @@ public class Contacts{
             l.log(Level.INFO,()-> String.valueOf(finalSearch));
         }
         else {
-            System.out.println("Your Search Contact is Not Found...");
+            l.info("Your Search Contact is Not Found...");
         }
     }
     void print(){
